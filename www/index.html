@@ -81,10 +81,10 @@
       })
     }
 
-    function searchLevel(){
-      let level = parseInt($("#level").val(),10);
+    function searchCalorie(){
+      let calorie = parseInt($("#calorie").val(),10);
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("level",level).fetchAll()
+      TestDataClass.equalTo("calorie",calorie).fetchAll()
       .then(function(results){
         showResults(results);
       })
@@ -116,15 +116,15 @@
     <input id="name" type="text" placeholder="料理名">
   </div>
   <div>
-    <label for="level">level:</label>
-    <input id="level" type="number" placeholder="monster level">
+    <label for="calorie">calorie:</label>
+    <input id="calorie" type="number" placeholder="カロリー">
   </div>
   <div id="button">
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
     <br>
     <button class="btn" onclick="searchLevelLT()">Level &lt</button>
-    <button class="btn" onclick="searchLevel()">Level</button>
+    <button class="btn" onclick="searchCalorie()">Calorie</button>
     <button class="btn" onclick="searchLevelGT()">Level &gt</button>
   </div>
   <div id="message">initializing...</div>
