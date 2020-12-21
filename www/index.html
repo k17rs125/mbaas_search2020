@@ -12,15 +12,13 @@
     // NCMB アクセスの準備
     let ncmb = new NCMB(appKey, clientKey);
     // 本アプリで使うクラスの指定。const は定数の宣言。変更できない変数と思えば良い。
-    const db = "SearchTest";
+    const db = "CalorieTest";
     // テスト用データを用意
     const init_data = [
-      {name: "blue eyes white dragon", level: 8, attack: 3000, defence: 2500},
-      {name: "dark magician", level: 7, attack: 2500, defence: 2100},
-      {name: "jacks knight", level: 5, attack: 1900, defence: 1000},
-      {name: "queens knight", level: 4, attack: 1500, defence: 1600},
-      {name: "kings knight", level: 4, attack: 1600, defence: 1400},
-      {name: "utagon", level: 6, attack: 2550, defence: 2200},
+      {name: "カツ丼", calorie: 500, protein: 30, lipid: 45, carbohydrate:90},
+      {name: "牛丼", calorie: 700, protein: 25, lipid: 25, carbohydrate:90},
+      {name: "生姜焼き", calorie: 200, protein: 20, lipid: 40, carbohydrate:2},
+      {name: "海鮮丼", calorie: 500, protein: 30, lipid: 45, carbohydrate:90},
     ];
 
     $(function() {
@@ -32,9 +30,10 @@
             let newRecord = new TestDataClass();
             newRecord
             .set("name", init_data[i].name)
-            .set("level", init_data[i].level)
-            .set("attack", init_data[i].attack)
-            .set("defence", init_data[i].defence)
+            .set("calorie", init_data[i].calorie)
+            .set("protein", init_data[i].protein)
+            .set("lipid", init_data[i].lipid)
+            .set("carbohydrate", init_data[i].carbohydrate)
             .save();
             // bad busy loop...
             let startMsec = new Date();
@@ -62,9 +61,10 @@
         // 各データを収めた表の列を生成
         msg += "<tr>";
         msg += "<td>" + results[i].name + "</td>";
-        msg += "<td class='num'>" + results[i].level + "</td>";
-        msg += "<td class='num'>" + results[i].attack + "</td>";
-        msg += "<td class='num'>" + results[i].defence + "</td>";
+        msg += "<td class='num'>" + results[i].calorie + "</td>";
+        msg += "<td class='num'>" + results[i].protein + "</td>";
+        msg += "<td class='num'>" + results[i].lipid + "</td>";
+        msg += "<td class='num'>" + results[i].carbohydrate + "</td>";
         msg += "</tr>";
       }
       // テーブルのテイラを生成
@@ -113,7 +113,7 @@
   <h1>mBaaS search</h1>
   <div>
     <label for="name">name:</label>
-    <input id="name" type="text" placeholder="monster name">
+    <input id="name" type="text" placeholder="料理名">
   </div>
   <div>
     <label for="level">level:</label>
