@@ -90,10 +90,10 @@
       })
     }
 
-    function searchLevelLT(){
-      let level = parseInt($("#level").val(),10);
+    function searchCalorieLT(){
+      let calorie = parseInt($("#calorie").val(),10);
       let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.lessThan("level",level).fetchAll()
+      TestDataClass.lessThan("calorie",calorie).fetchAll()
       .then(function(results){
         showResults(results);
       })
@@ -123,7 +123,7 @@
     <button class="btn" onclick="fetchAll()">Fetch All</button>
     <button class="btn" onclick="searchName()">Name</button>
     <br>
-    <button class="btn" onclick="searchLevelLT()">Level &lt</button>
+    <button class="btn" onclick="searchCalorieLT()">Calorie &lt</button>
     <button class="btn" onclick="searchCalorie()">Calorie</button>
     <button class="btn" onclick="searchLevelGT()">Level &gt</button>
   </div>
