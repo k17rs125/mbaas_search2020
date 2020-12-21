@@ -20,6 +20,7 @@
       {name: "jacks knight", level: 5, attack: 1900, defence: 1000},
       {name: "queens knight", level: 4, attack: 1500, defence: 1600},
       {name: "kings knight", level: 4, attack: 1600, defence: 1400},
+      {name: "utagon", level: 6, attack: 2550, defence: 2200},
     ];
 
     $(function() {
@@ -56,7 +57,7 @@
 
     function showResults(results) {
       // テーブルのヘッダを生成
-      let msg="<table><tr><th>name</th><th>Lvl</th><th>attack</th><th>defence</th></tr>";
+      let msg="<table><tr><th>料理名</th><th>カロリー</th><th>タンパク質</th><th>脂質</th><th>炭水化物</th></tr>";
       for(let i=0; i<results.length; i++) {
         // 各データを収めた表の列を生成
         msg += "<tr>";
