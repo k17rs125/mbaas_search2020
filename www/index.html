@@ -17,16 +17,18 @@
     const init_data = [
       {name: "カツ丼", calorie: 500, protein: 30, lipid: 45, carbohydrate:90},
       {name: "牛丼", calorie: 700, protein: 25, lipid: 25, carbohydrate:90},
-      {name: "生姜焼き", calorie: 200, protein: 20, lipid: 40, carbohydrate:2},
       {name: "海鮮丼", calorie: 500, protein: 30, lipid: 45, carbohydrate:90},
       {name: "お好み焼き", calorie: 550, protein: 21, lipid: 24, carbohydrate:52},
       {name: "カレー", calorie: 650, protein: 20, lipid: 22, carbohydrate:88},
       {name: "クリームシチュー", calorie: 400, protein: 20, lipid: 25, carbohydrate:25},
       {name: "麻婆豆腐", calorie: 300, protein: 18, lipid: 18, carbohydrate:15},
-      {name: "唐揚げ(5個)", calorie: 325, protein: 17, lipid: 22, carbohydrate:11},
       {name: "白ご飯", calorie: 250, protein: 5, lipid: 1, carbohydrate:50},
       {name: "チャーハン", calorie: 550, protein: 17, lipid: 18, carbohydrate:70},
-      {name: "餃子(5個)", calorie: 200, protein: 12, lipid: 10, carbohydrate:16},
+      {name: "餃子定食", calorie: 720, protein: 22, lipid: 22, carbohydrate:100},
+      {name: "唐揚げ定食", calorie: 900, protein: 30, lipid: 40, carbohydrate:90},
+      {name: "生姜焼き定食", calorie: 750, protein: 28, lipid: 26, carbohydrate:100},
+      {name: "チキン南蛮定食", calorie: 920, protein: 32, lipid: 50, carbohydrate:80},
+      {name: "食パン", calorie: 300, protein: 10, lipid: 3, carbohydrate:30},
     ];
 
     $(function() {
@@ -115,13 +117,22 @@
         showResults(results);
       })
     }
+
+    function calorieCalculation(){
+      let name = $("#name").val();
+      let TestDataClass = ncmb.DataStore(db);
+      TestDataClass.equalTo("name",name).fetchAll()
+      .then(function(results){
+        showResults(results);
+      })
+    }
     </script>
 </head>
 <body>
-  <h1>Calorie calculation</h1>
+  <h1>摂取カロリー早見表</h1>
   <div>
     <label for="name">name:</label>
-    <input id="name" type="text" placeholder="料理名">
+    <input id="name" type="text" placeholder="メニュー名">
   </div>
   <div>
     <label for="calorie">calorie:</label>
@@ -134,6 +145,18 @@
     <button class="btn" onclick="searchCalorieLT()"> &lt Calorie </button>
     <button class="btn" onclick="searchCalorie()">Calorie</button>
     <button class="btn" onclick="searchCalorieGT()">Calorie &gt</button>
+  </div>
+  <h1>カロリー計算</h1>
+  <div>
+    <label for="breakfast">朝食:</label>
+    <input id="breakfast" type="text" placeholder="カロリー量" minlength="1" maxlength="4">
+    <label for="lunch">昼食:</label>
+    <input id="lunch" type="text" placeholder="カロリー量">
+    <label for="dinner">夕食:</label>
+    <input id="dinner" type="text" placeholder="カロリー量">
+  </div>
+  <div id="button">
+  <button class="btn" onclick="calorieCalculation()">Total</button>
   </div>
   <div id="message">initializing...</div>
 </body>
