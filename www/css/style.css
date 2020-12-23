@@ -34,7 +34,12 @@ input {
 
 #message {
   border-style: solid;
-  border-color: grey;
+  border-color: #0099FF;
+}
+
+#message2 {
+  border-style: solid;
+  border-color: #0099FF;
 }
 
 table {
