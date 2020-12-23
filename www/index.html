@@ -119,12 +119,13 @@
     }
 
     function calorieCalculation(){
-      let name = $("#name").val();
-      let TestDataClass = ncmb.DataStore(db);
-      TestDataClass.equalTo("name",name).fetchAll()
-      .then(function(results){
-        showResults(results);
-      })
+      let breakfast = parseInt($("#breakfast").val(),10);      
+      let lunch = parseInt($("#lunch").val(),10);
+      let dinner = parseInt($("#dinner").val(),10);
+      let total = breakfast + lunch + dinner;
+      let msg = "摂取カロリー:" + total + "kcal";
+      $("#message2").html(msg);
+      console.log(total);
     }
     </script>
 </head>
@@ -149,15 +150,16 @@
   <h1>カロリー計算</h1>
   <div>
     <label for="breakfast">朝食:</label>
-    <input id="breakfast" type="text" placeholder="カロリー量" minlength="1" maxlength="4">
+    <input id="breakfast" type="number" placeholder="カロリー量" minlength="1" maxlength="4">
     <label for="lunch">昼食:</label>
-    <input id="lunch" type="text" placeholder="カロリー量">
+    <input id="lunch" type="number" placeholder="カロリー量">
     <label for="dinner">夕食:</label>
-    <input id="dinner" type="text" placeholder="カロリー量">
+    <input id="dinner" type="number" placeholder="カロリー量">
   </div>
   <div id="button">
   <button class="btn" onclick="calorieCalculation()">Total</button>
   </div>
+  <div id = "message2">kokonideru</div>
   <div id="message">initializing...</div>
 </body>
 </html>
