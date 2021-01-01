@@ -16,7 +16,7 @@
     // テスト用データを用意
     const init_data = [
       {name: "カツ丼", calorie: 500, protein: 30, lipid: 45, carbohydrate:90},
-      {name: "牛丼", calorie: 700, protein: 25, lipid: 25, carbohydrate:90},
+      {name: "牛丼", calorie: 900, protein: 25, lipid: 25, carbohydrate:90},
       {name: "海鮮丼", calorie: 500, protein: 30, lipid: 45, carbohydrate:90},
       {name: "お好み焼き", calorie: 550, protein: 21, lipid: 24, carbohydrate:52},
       {name: "カレー", calorie: 650, protein: 20, lipid: 22, carbohydrate:88},
@@ -127,16 +127,16 @@
       $("#message2").html(msg);
       if(total <= 2200){
         small(total);
-      }else if(total > 2200 && total < 2600){
+      }else if(total > 2200 && total < 2400){
         ok(total);
-      }else if(total >= 2600){
+      }else if(total >= 2400){
         big(total);
       };
       console.log(total);
     }
 
     function small(total){
-      let msg = "適正カロリーまであと" + (2400 - total) + "カロリー足りません。";
+      let msg = "適正カロリーまであと" + (2300 - total) + "カロリー足りません。";
       $("#message3").html(msg);
     }
 
@@ -146,7 +146,7 @@
     }
 
      function big(total){
-      let msg = "適正カロリーに対して" + (total - 2600) + "カロリー多く摂取しています。";
+      let msg = "適正カロリーに対して" + (total - 2400) + "カロリー多く摂取しています。";
       $("#message3").html(msg);
     }
     </script>
