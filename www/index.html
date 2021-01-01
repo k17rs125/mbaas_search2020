@@ -126,7 +126,7 @@
       let msg = "摂取カロリー:" + total + "kcal<br>";
       $("#message2").html(msg);
       if(total <= 2200){
-        small();
+        small(total);
       }else if(total < 2200 && total > 2600){
         ok();
       }else if(total >= 2600){
@@ -135,7 +135,10 @@
       console.log(total);
     }
 
-    
+    function small(total){
+      let msg = "適正カロリーまであと" + (2400 - total) + "カロリー足りません。";
+      $("#message3").html(msg);
+    }
     </script>
 </head>
 <body>
