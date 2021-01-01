@@ -47,6 +47,12 @@ input {
   border-color: #0099FF;
 }
 
+#message4 {
+  border-style: solid;
+   background-color: #0099FF;
+  border-color: #0099FF;
+}
+
 table {
   border-collapse: collapse;
 }
