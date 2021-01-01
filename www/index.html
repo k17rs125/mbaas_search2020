@@ -127,7 +127,7 @@
       $("#message2").html(msg);
       if(total <= 2200){
         small(total);
-      }else if(total < 2200 && total > 2600){
+      }else if(total > 2200 && total < 2600){
         ok(total);
       }else if(total >= 2600){
         big(total);
@@ -137,6 +137,11 @@
 
     function small(total){
       let msg = "適正カロリーまであと" + (2400 - total) + "カロリー足りません。";
+      $("#message3").html(msg);
+    }
+
+     function ok(total){
+      let msg = "適正カロリーです。おめでとうございます。";
       $("#message3").html(msg);
     }
     </script>
