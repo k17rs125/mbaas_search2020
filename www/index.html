@@ -123,10 +123,19 @@
       let lunch = parseInt($("#lunch").val(),10);
       let dinner = parseInt($("#dinner").val(),10);
       let total = breakfast + lunch + dinner;
-      let msg = "摂取カロリー:" + total + "kcal";
+      let msg = "摂取カロリー:" + total + "kcal<br>";
       $("#message2").html(msg);
+      if(total <= 2200){
+        small();
+      }else if(total < 2200 && total > 2600){
+        ok();
+      }else if(total >= 2600){
+        big();
+      };
       console.log(total);
     }
+
+    
     </script>
 </head>
 <body>
@@ -159,7 +168,8 @@
   <div id="button">
   <button class="btn" onclick="calorieCalculation()">Total</button>
   </div>
-  <div id = "message2">kokonideru</div>
+  <div id = "message2">摂取カロリー:</div>
+  <div id = "message3"></div>
   <div id="message">initializing...</div>
 </body>
 </html>
