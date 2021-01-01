@@ -42,6 +42,11 @@ input {
   border-color: #0099FF;
 }
 
+#message3 {
+  border-style: solid;
+  border-color: #0099FF;
+}
+
 table {
   border-collapse: collapse;
 }
