@@ -128,9 +128,9 @@
       if(total <= 2200){
         small(total);
       }else if(total < 2200 && total > 2600){
-        ok();
+        ok(total);
       }else if(total >= 2600){
-        big();
+        big(total);
       };
       console.log(total);
     }
@@ -162,7 +162,7 @@
   <h1>カロリー計算</h1>
   <div>
     <label for="breakfast">朝食:</label>
-    <input id="breakfast" type="number" placeholder="カロリー量" minlength="1" maxlength="4">
+    <input id="breakfast" type="number" placeholder="カロリー量" >
     <label for="lunch">昼食:</label>
     <input id="lunch" type="number" placeholder="カロリー量">
     <label for="dinner">夕食:</label>
@@ -173,6 +173,7 @@
   </div>
   <div id = "message2">摂取カロリー:</div>
   <div id = "message3"></div>
+  <div id = "message4">*この計算は男・20代・やせ型が対象です。</div>
   <div id="message">initializing...</div>
 </body>
 </html>
